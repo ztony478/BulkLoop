@@ -131,15 +131,14 @@ namespace BulkLoop
             {
                 lock (this)
                 {
-                    bool SendData = true;
+                    SendData = true;
                     outData[1] = Convert.ToByte(CmdLabel.Text);
                     outData[2] = Convert.ToByte(DataMSBLabel.Text);
                     outData[3] = Convert.ToByte(DataLSBLabel);
                 }
             }
             catch
-            {
-            }
+            {}
         }
         
         /* Summary
