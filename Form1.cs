@@ -88,7 +88,7 @@ namespace BulkLoop
         */
         public void setDevice()
         {          
-            loopDevice = usbDevices[0x04b4, 0x1004] as CyUSBDevice;
+            loopDevice = usbDevices[0x04b4, 0x8613] as CyUSBDevice;
 
             StartBtn.Enabled = (loopDevice != null);
 
@@ -134,7 +134,7 @@ namespace BulkLoop
                     SendData = true;
                     outData[1] = Convert.ToByte(CmdLabel.Text);
                     outData[2] = Convert.ToByte(DataMSBLabel.Text);
-                    outData[3] = Convert.ToByte(DataLSBLabel);
+                    outData[3] = Convert.ToByte(DataLSBLabel.Text);
                 }
             }
             catch
@@ -162,7 +162,7 @@ namespace BulkLoop
                     {
                         lock (this)
                         {
-                            foreach (int i in outData)
+                            for (int i = 0; i < outData.Length; i++)
                             {
                                 tmpOutData[i] = outData[i];
                             }
@@ -178,7 +178,7 @@ namespace BulkLoop
 
                         lock (this)
                         {
-                            foreach (int i in inData)
+                            for (int i = 0; i < inData.Length; i++)
                             {
                                 inData[i] = tmpInData[i];
                             }

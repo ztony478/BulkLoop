@@ -33,18 +33,18 @@ namespace BulkLoop
             this.StartBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.CmdLabel = new System.Windows.Forms.Label();
             this.BytesInCmd = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CmdLabel = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BytesInDataLSB = new System.Windows.Forms.Label();
             this.BytesInDataMSB = new System.Windows.Forms.Label();
-            this.DataLSBLabel = new System.Windows.Forms.Label();
-            this.DataMSBLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DataMSBLabel = new System.Windows.Forms.TextBox();
+            this.DataLSBLabel = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartBtn
@@ -76,17 +76,6 @@ namespace BulkLoop
             this.label3.TabIndex = 4;
             this.label3.Text = "Bytes transferred IN";
             // 
-            // CmdLabel
-            // 
-            this.CmdLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CmdLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.CmdLabel.Location = new System.Drawing.Point(156, 17);
-            this.CmdLabel.Name = "CmdLabel";
-            this.CmdLabel.Size = new System.Drawing.Size(39, 18);
-            this.CmdLabel.TabIndex = 5;
-            this.CmdLabel.Text = "0";
-            this.CmdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // BytesInCmd
             // 
             this.BytesInCmd.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -110,6 +99,25 @@ namespace BulkLoop
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // CmdLabel
+            // 
+            this.CmdLabel.Location = new System.Drawing.Point(156, 14);
+            this.CmdLabel.Name = "CmdLabel";
+            this.CmdLabel.Size = new System.Drawing.Size(39, 21);
+            this.CmdLabel.TabIndex = 9;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.BytesInCmd);
+            this.groupBox3.Controls.Add(this.BytesInDataLSB);
+            this.groupBox3.Controls.Add(this.BytesInDataMSB);
+            this.groupBox3.Location = new System.Drawing.Point(8, 65);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(340, 46);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            // 
             // BytesInDataLSB
             // 
             this.BytesInDataLSB.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -132,51 +140,31 @@ namespace BulkLoop
             this.BytesInDataMSB.Text = "0";
             this.BytesInDataMSB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // DataLSBLabel
-            // 
-            this.DataLSBLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DataLSBLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DataLSBLabel.Location = new System.Drawing.Point(277, 17);
-            this.DataLSBLabel.Name = "DataLSBLabel";
-            this.DataLSBLabel.Size = new System.Drawing.Size(39, 18);
-            this.DataLSBLabel.TabIndex = 5;
-            this.DataLSBLabel.Text = "0";
-            this.DataLSBLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // DataMSBLabel
-            // 
-            this.DataMSBLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DataMSBLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DataMSBLabel.Location = new System.Drawing.Point(211, 17);
-            this.DataMSBLabel.Name = "DataMSBLabel";
-            this.DataMSBLabel.Size = new System.Drawing.Size(39, 18);
-            this.DataMSBLabel.TabIndex = 5;
-            this.DataMSBLabel.Text = "0";
-            this.DataMSBLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.CmdLabel);
-            this.groupBox2.Controls.Add(this.DataMSBLabel);
             this.groupBox2.Controls.Add(this.DataLSBLabel);
+            this.groupBox2.Controls.Add(this.DataMSBLabel);
+            this.groupBox2.Controls.Add(this.CmdLabel);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(8, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(340, 47);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
-            // groupBox3
+            // DataMSBLabel
             // 
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.BytesInCmd);
-            this.groupBox3.Controls.Add(this.BytesInDataLSB);
-            this.groupBox3.Controls.Add(this.BytesInDataMSB);
-            this.groupBox3.Location = new System.Drawing.Point(8, 65);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(340, 46);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
+            this.DataMSBLabel.Location = new System.Drawing.Point(217, 14);
+            this.DataMSBLabel.Name = "DataMSBLabel";
+            this.DataMSBLabel.Size = new System.Drawing.Size(39, 21);
+            this.DataMSBLabel.TabIndex = 9;
+            // 
+            // DataLSBLabel
+            // 
+            this.DataLSBLabel.Location = new System.Drawing.Point(281, 14);
+            this.DataLSBLabel.Name = "DataLSBLabel";
+            this.DataLSBLabel.Size = new System.Drawing.Size(39, 21);
+            this.DataLSBLabel.TabIndex = 9;
             // 
             // Form1
             // 
@@ -191,10 +179,10 @@ namespace BulkLoop
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -204,15 +192,15 @@ namespace BulkLoop
         private System.Windows.Forms.Button StartBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label CmdLabel;
         private System.Windows.Forms.Label BytesInCmd;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label BytesInDataLSB;
         private System.Windows.Forms.Label BytesInDataMSB;
-        private System.Windows.Forms.Label DataLSBLabel;
-        private System.Windows.Forms.Label DataMSBLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox CmdLabel;
+        private System.Windows.Forms.TextBox DataLSBLabel;
+        private System.Windows.Forms.TextBox DataMSBLabel;
     }
 }
 
