@@ -87,21 +87,26 @@ namespace BulkLoop
             This will detect only the devices with the above VID,PID combinations
         */
         public void setDevice()
-        {          
-            loopDevice = usbDevices[0x04b4, 0x8613] as CyUSBDevice;
+        {
+            try
+            {
+                loopDevice = usbDevices[0x04b4, 0x8613] as CyUSBDevice;
 
-            StartBtn.Enabled = (loopDevice != null);
+                StartBtn.Enabled = (loopDevice != null);
 
-            if (loopDevice != null)
-                Text = loopDevice.FriendlyName;
-            else
-                Text = "Bulkloop - no device";
+                if (loopDevice != null)
+                    Text = loopDevice.FriendlyName;
+                else
+                    Text = "Bulkloop - no device";
 
-            outEndpoint = loopDevice.EndPointOf(0x02) as CyBulkEndPoint;
-            inEndpoint = loopDevice.EndPointOf(0x86) as CyBulkEndPoint;
+                outEndpoint = loopDevice.EndPointOf(0x02) as CyBulkEndPoint;
+                inEndpoint = loopDevice.EndPointOf(0x86) as CyBulkEndPoint;
 
-            outEndpoint.TimeOut = 1000;
-            inEndpoint.TimeOut = 1000;
+                outEndpoint.TimeOut = 1000;
+                inEndpoint.TimeOut = 1000;
+            }
+            catch
+            {}
         }
 
 
