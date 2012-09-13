@@ -97,7 +97,7 @@ namespace BulkLoop
                 if (loopDevice != null)
                     Text = loopDevice.FriendlyName;
                 else
-                    Text = "Bulkloop - no device";
+                    Text = "BVCOMVC - no device";
 
                 outEndpoint = loopDevice.EndPointOf(0x02) as CyBulkEndPoint;
                 inEndpoint = loopDevice.EndPointOf(0x86) as CyBulkEndPoint;
@@ -106,7 +106,9 @@ namespace BulkLoop
                 inEndpoint.TimeOut = 1000;
             }
             catch
-            {}
+            {
+                Text = "BVCOMVC - no device";
+            }
         }
 
 

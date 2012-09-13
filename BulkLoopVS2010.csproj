@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BulkLoop</RootNamespace>
     <AssemblyName>BulkLoop</AssemblyName>
-    <ApplicationIcon>CY.ico</ApplicationIcon>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CY.ico" />
+    <Content Include="Logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

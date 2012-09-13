@@ -35,13 +35,13 @@ namespace BulkLoop
             this.label3 = new System.Windows.Forms.Label();
             this.BytesInCmd = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CmdLabel = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BytesInDataLSB = new System.Windows.Forms.Label();
             this.BytesInDataMSB = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.DataMSBLabel = new System.Windows.Forms.TextBox();
             this.DataLSBLabel = new System.Windows.Forms.TextBox();
+            this.DataMSBLabel = new System.Windows.Forms.TextBox();
+            this.CmdLabel = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -99,13 +99,6 @@ namespace BulkLoop
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // CmdLabel
-            // 
-            this.CmdLabel.Location = new System.Drawing.Point(156, 14);
-            this.CmdLabel.Name = "CmdLabel";
-            this.CmdLabel.Size = new System.Drawing.Size(39, 21);
-            this.CmdLabel.TabIndex = 9;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label3);
@@ -152,6 +145,13 @@ namespace BulkLoop
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
+            // DataLSBLabel
+            // 
+            this.DataLSBLabel.Location = new System.Drawing.Point(281, 14);
+            this.DataLSBLabel.Name = "DataLSBLabel";
+            this.DataLSBLabel.Size = new System.Drawing.Size(39, 21);
+            this.DataLSBLabel.TabIndex = 9;
+            // 
             // DataMSBLabel
             // 
             this.DataMSBLabel.Location = new System.Drawing.Point(217, 14);
@@ -159,12 +159,12 @@ namespace BulkLoop
             this.DataMSBLabel.Size = new System.Drawing.Size(39, 21);
             this.DataMSBLabel.TabIndex = 9;
             // 
-            // DataLSBLabel
+            // CmdLabel
             // 
-            this.DataLSBLabel.Location = new System.Drawing.Point(281, 14);
-            this.DataLSBLabel.Name = "DataLSBLabel";
-            this.DataLSBLabel.Size = new System.Drawing.Size(39, 21);
-            this.DataLSBLabel.TabIndex = 9;
+            this.CmdLabel.Location = new System.Drawing.Point(156, 14);
+            this.CmdLabel.Name = "CmdLabel";
+            this.CmdLabel.Size = new System.Drawing.Size(39, 21);
+            this.CmdLabel.TabIndex = 9;
             // 
             // Form1
             // 
@@ -175,7 +175,7 @@ namespace BulkLoop
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BulkLoop";
+            this.Text = "BVCOMVC";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
