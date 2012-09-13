@@ -14,6 +14,8 @@ namespace BulkLoop
 
         Thread  tXfers;
 
+        bool SendData = false;
+
         const int XFERSIZE  = 5;
         byte[]  outData     = new byte[XFERSIZE];
         byte[]  inData      = new byte[XFERSIZE];
@@ -129,6 +131,7 @@ namespace BulkLoop
             {
                 lock (this)
                 {
+                    bool SendData = true;
                     outData[1] = Convert.ToByte(CmdLabel.Text);
                     outData[2] = Convert.ToByte(DataMSBLabel.Text);
                     outData[3] = Convert.ToByte(DataLSBLabel);
@@ -154,32 +157,45 @@ namespace BulkLoop
             // Loop stops if either an IN or OUT transfer fails
             while (bResult)
             {
-                lock (this)
+                try
                 {
-                    foreach (int i in outData)
+                    if (SendData)
                     {
-                        tmpOutData[i] = outData[i];
+                        lock (this)
+                        {
+                            foreach (int i in outData)
+                            {
+                                tmpOutData[i] = outData[i];
+                            }
+                        }
+
+                        //calls the XferData function for bulk transfer(OUT/IN) in the cyusb.dll
+                        bResult = outEndpoint.XferData(ref tmpOutData, ref xferLen);
+
+                        if (bResult)
+                        {//calls the XferData function for bulk transfer(OUT/IN) in the cyusb.dll
+                            bResult = inEndpoint.XferData(ref tmpInData, ref xferLen);
+                        }
+
+                        lock (this)
+                        {
+                            foreach (int i in inData)
+                            {
+                                inData[i] = tmpInData[i];
+                            }
+                        }
+
+                        // Call StatusUpdate() in the main thread
+                        this.Invoke(updateUI);
+
+                        lock (this)
+                        {
+                            SendData = false;
+                        }
                     }
                 }
-
-                //calls the XferData function for bulk transfer(OUT/IN) in the cyusb.dll
-                bResult = outEndpoint.XferData(ref tmpOutData, ref xferLen);
-                
-                if (bResult)
-                {//calls the XferData function for bulk transfer(OUT/IN) in the cyusb.dll
-                    bResult = inEndpoint.XferData(ref tmpInData, ref xferLen);
-                }
-
-                lock (this)
-                {
-                    foreach (int i in inData)
-                    {
-                        inData[i] = tmpInData[i];
-                    }
-                }
-
-                // Call StatusUpdate() in the main thread
-                this.Invoke(updateUI);
+                catch
+                {}
             }
 
             MessageBox.Show("Time Out");
